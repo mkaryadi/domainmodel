@@ -2,7 +2,6 @@ import XCTest
 @testable import DomainModel
 
 class MoneyTests: XCTestCase {
-  
   let tenUSD = Money(amount: 10, currency: "USD")
   let twelveUSD = Money(amount: 12, currency: "USD")
   let fiveGBP = Money(amount: 5, currency: "GBP")
