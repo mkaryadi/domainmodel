@@ -122,6 +122,10 @@ public class Person {
         self.lastName = lastName
         self.age = age
     }
+    
+    func toString() -> String {
+        return "[Person: firstName:\(firstName) lastName:\(lastName) age:\(age) job:\(job?.type) spouse:\(spouse?.firstName ?? "N/A")]"
+    }
 }
 
 ////////////////////////////////////
