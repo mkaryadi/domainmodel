@@ -140,7 +140,7 @@ public class Person {
     }
 }
 
-////////////////////////////////////
+//////////////////////////////////
 // Family
 //
 public class Family {
@@ -148,5 +148,21 @@ public class Family {
     
     init(spouse1: Person, spouse2: Person) {
         members = [spouse1, spouse2]
+    }
+    
+    func haveChild(_ child: Person) -> Bool {
+        if (members[0].age < 21 && members[1].age < 21) {
+            return false
+        }
+        members.append(child)
+        return true
+    }
+    
+    func householdIncome() -> Int {
+        var total = 0
+        for member in members {
+            total += member.job?.calculateIncome(2000) ?? 0
+        }
+        return total
     }
 }
