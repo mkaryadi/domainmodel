@@ -114,8 +114,20 @@ public class Person {
     let firstName: String
     let lastName: String
     let age: Int
-    var job: Job?
-    var spouse: Person?
+    var job: Job? {
+        didSet {
+            if age < 18 {
+                job = nil
+            }
+        }
+    }
+    var spouse: Person? {
+        didSet {
+            if age < 18 {
+                spouse = nil
+            }
+        }
+    }
     
     init(firstName: String, lastName: String, age: Int) {
         self.firstName = firstName
@@ -124,7 +136,7 @@ public class Person {
     }
     
     func toString() -> String {
-        return "[Person: firstName:\(firstName) lastName:\(lastName) age:\(age) job:\(job?.type) spouse:\(spouse?.firstName ?? "N/A")]"
+        return "[Person: firstName:\(firstName) lastName:\(lastName) age:\(age) job:\(job) spouse:\(spouse)]"
     }
 }
 
